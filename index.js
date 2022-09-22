@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 const { Client, GatewayIntentBits } = require("discord.js");
 const setup = require("./setup");
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+require('dotenv').config()
 
 setup();
 
@@ -33,9 +34,7 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-client.login(
-  "MTAyMjU4MDAyMTc2MTY3MTI4MQ.G7v89T.doXmfO0Qo4iCFOB9XJRM6GXBrR-nRYgAWb_VAQ"
-);
+client.login(process.env.TOKEN);
 
 const getImagePrices = async () => {
   const browser = await puppeteer.launch();

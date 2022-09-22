@@ -1,4 +1,5 @@
 const { REST, Routes } = require("discord.js");
+require('dotenv').config()
 const setup = async () => {
   const commands = [
     {
@@ -11,9 +12,7 @@ const setup = async () => {
     }
   ];
 
-  const rest = new REST({ version: "10" }).setToken(
-    "MTAyMjU4MDAyMTc2MTY3MTI4MQ.G7v89T.doXmfO0Qo4iCFOB9XJRM6GXBrR-nRYgAWb_VAQ"
-  );
+  const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
   (async () => {
     try {

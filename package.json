@@ -11,6 +11,7 @@
   "homepage": "https://github.com/ezegonzalez912/bad-bunny-bot#readme",
   "dependencies": {
     "discord.js": "^14.4.0",
+    "dotenv": "^16.0.2",
     "puppeteer": "^18.0.5"
   },
   "devDependencies": {
