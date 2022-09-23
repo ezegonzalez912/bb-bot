@@ -20,12 +20,13 @@ const sendMessage = async (show) => {
 
 }
 
-console.log("Comenzo el bot");
-client.messages.create({
-   to: process.env.MY_PHONE_NUMBER,
-   from: '+18323466998',
-   body: "Comenzo el bot"
-})
+setTimeout(() => {
+   client.messages.create({
+      to: process.env.MY_PHONE_NUMBER,
+      from: '+18323466998',
+      body: "Comenzo el bot"
+   })
+}, 120000)
 
 cron.schedule('*/60 * * * *', () => {
    
