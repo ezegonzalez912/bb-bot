@@ -39,6 +39,8 @@ const getMessages = async ({ url, msg, id }) => {
    //cierra el browser
    await browser.close();
 
+   console.log(priceList, id);
+
    return Promise.resolve(formatMessage(priceList, msg, id));
 }
 

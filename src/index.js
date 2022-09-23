@@ -14,7 +14,7 @@ const sendMessage = async (show) => {
       if(message) {
          const send = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${MY_HPONE}&text=${message}&apikey=${API_KEY}`)
          const send2 = await fetch(`https://api.callmebot.com/whatsapp.php?phone=+5491169180549&text=${message}&apikey=536584`)
-         console.log(send, send2);
+         console.log("Mensajes enviados");
       }
    } catch (e) {
       console.log(e);
