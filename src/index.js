@@ -30,3 +30,7 @@ cron.schedule('*/10 * * * *', () => {
    });
 });
 
+// shows.forEach(show => {
+//          sendMessage(show);
+//       });
+

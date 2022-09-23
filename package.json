@@ -18,6 +18,7 @@
     "dotenv": "^16.0.2",
     "node-cron": "^3.0.2",
     "puppeteer": "^18.0.5",
+    "puppeteer-select": "^1.0.3",
     "twilio": "^3.82.1"
   },
   "devDependencies": {

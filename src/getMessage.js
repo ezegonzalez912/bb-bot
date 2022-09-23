@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const { formatMessage } = require("./utils");
+const select = require ('puppeteer-select');
 
 const getMessages = async ({ url, msg, id }) => {
 
@@ -22,6 +23,17 @@ const getMessages = async ({ url, msg, id }) => {
    //Click en continuar
    const continueButton = await page.$('button[data-trackingdatavaluename="TFQContinue"]');
    await continueButton.click();
+
+   await page.waitForTimeout(1000);
+   
+   const selectDivisa = await select(page).getElement('span:contains(US$)');
+   await selectDivisa.click();
+
+   await page.waitForTimeout(1000);
+   
+   await page.screenshot({path: 'example.png'});
+   const pesoArg = await page.$('a[data-code="ARS"]');
+   await pesoArg.click();
    
    //Espera a que cargen los precios
    await page.waitForTimeout(10000);
