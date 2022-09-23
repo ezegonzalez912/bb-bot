@@ -6,14 +6,14 @@ require('dotenv').config()
 const accountSID = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 
-const client = require('twilio')(accountSID, authToken);
+const client = require('twilio')('AC482ddfc2b04c6bb58652c5d3632b79bf', '33a7e7f35cbb3918eb910f9fb0c9863e');
 
 const sendMessage = async (show) => {
 
    const message = await getMessages(show);
    
    client.messages.create({
-      to: process.env.MY_PHONE_NUMBER,
+      to: '+541130962241',
       from: '+18323466998',
       body: message
    })
@@ -22,7 +22,7 @@ const sendMessage = async (show) => {
 
 setTimeout(() => {
    client.messages.create({
-      to: process.env.MY_PHONE_NUMBER,
+      to: '+541130962241',
       from: '+18323466998',
       body: "Comenzo el bot"
    })
