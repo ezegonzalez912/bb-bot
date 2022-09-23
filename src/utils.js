@@ -15,8 +15,8 @@ const formatMessage = (messages, text, id) => {
 
   const show = shows.find((show) => show.id == id);
   const { firstPrice, secondPrice } = show;
-
-  if (firstMsg < firstPrice || secondMsg < secondPrice) {
+  console.log({ firstPrice, secondPrice }, { firstMsg, secondMsg });
+  if (firstMsg >= firstPrice && secondMsg >= secondPrice) {
     return null;
   } else {
     const prices = {

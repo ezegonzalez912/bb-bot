@@ -22,7 +22,7 @@ const sendMessage = async (show) => {
    
 }
 
-cron.schedule('*/15 * * * *', () => {
+cron.schedule('*/10 * * * *', () => {
    shows.forEach(show => {
       sendMessage(show);
    });
