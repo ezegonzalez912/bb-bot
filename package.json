@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "engines": {
     "node": "17.0.0",
@@ -15,9 +15,10 @@
   "license": "ISC",
   "homepage": "https://github.com/ezegonzalez912/bad-bunny-bot#readme",
   "dependencies": {
-    "discord.js": "^14.4.0",
     "dotenv": "^16.0.2",
-    "puppeteer": "^18.0.5"
+    "node-cron": "^3.0.2",
+    "puppeteer": "^18.0.5",
+    "twilio": "^3.82.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
