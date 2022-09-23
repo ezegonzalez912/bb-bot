@@ -20,16 +20,14 @@ const sendMessage = async (show) => {
 
 }
 
-client.messages.create({
-   to: process.env.MY_PHONE_NUMBER,
-   from: '+18323466998',
-   body: "Service start"
-})
+console.log("Comenzo el bot");
 
 cron.schedule('*/60 * * * *', () => {
    
    const now = new Date();
    const hour = now.getHours()
+
+   console.log("Se ejecuto a las: ", hour);
 
    if(hour < 00 && hour > 12) {
       shows.forEach(show => {
