@@ -1,43 +1,30 @@
 const getMessages = require('./getMessage');
 const shows = require('./shows');
 var cron = require('node-cron');
-require('dotenv').config()
+const fetch = require('cross-fetch');
 
-const accountSID = process.env.ACCOUNT_SID;
-const authToken = process.env.AUTH_TOKEN;
-
-const client = require('twilio')('AC482ddfc2b04c6bb58652c5d3632b79bf', '33a7e7f35cbb3918eb910f9fb0c9863e');
+const MY_HPONE = "+5491130962241";
+const API_KEY = "560947";
 
 const sendMessage = async (show) => {
 
-   const message = await getMessages(show);
+   try {
+      const message = await getMessages(show);
+      console.log(message);
+      if(message) {
+         const send = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${MY_HPONE}&text=${message}&apikey=${API_KEY}`)
+         const send2 = await fetch(`https://api.callmebot.com/whatsapp.php?phone=+5491169180549&text=${message}&apikey=536584`)
+         console.log(send, send2);
+      }
+   } catch (e) {
+      console.log(e);
+   }
    
-   client.messages.create({
-      to: '+541130962241',
-      from: '+18323466998',
-      body: message
-   })
-
 }
 
-setTimeout(() => {
-   client.messages.create({
-      to: '+541130962241',
-      from: '+18323466998',
-      body: "Comenzo el bot"
-   })
-}, 120000)
-
-cron.schedule('*/60 * * * *', () => {
-   
-   const now = new Date();
-   const hour = now.getHours()
-
-   console.log("Se ejecuto a las: ", hour);
-
-   if(hour < 23 && hour > 12) {
-      shows.forEach(show => {
-         sendMessage(show);
-      });
-   }
+cron.schedule('*/15 * * * *', () => {
+   shows.forEach(show => {
+      sendMessage(show);
+   });
 });
+

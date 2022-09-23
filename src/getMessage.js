@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const { formatMessage } = require("./utils");
 
-const getMessages = async ({ url, msg }) => {
+const getMessages = async ({ url, msg, id }) => {
 
    //incia la pagina
    const browser = await puppeteer.launch();
@@ -39,7 +39,7 @@ const getMessages = async ({ url, msg }) => {
    //cierra el browser
    await browser.close();
 
-   return Promise.resolve(formatMessage(priceList, msg));
+   return Promise.resolve(formatMessage(priceList, msg, id));
 }
 
 module.exports = getMessages;
