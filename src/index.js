@@ -22,6 +22,8 @@ const sendMessage = async (show) => {
    
 }
 
+console.log("Comienza el servicio!");
+
 cron.schedule('*/10 * * * *', () => {
    shows.forEach(show => {
       sendMessage(show);
