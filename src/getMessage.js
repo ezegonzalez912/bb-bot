@@ -4,7 +4,7 @@ const { formatMessage } = require("./utils");
 const getMessages = async ({ url, msg, id }) => {
 
    //incia la pagina
-   const browser = await puppeteer.launch();
+   const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
    const page = await browser.newPage();
    await page.goto(url);
    
@@ -35,7 +35,7 @@ const getMessages = async ({ url, msg, id }) => {
    const priceThree = await (await prices[2].getProperty("textContent")).jsonValue();
    
    const priceList = [priceOne, priceTwo, priceThree];
-   
+
    //cierra el browser
    await browser.close();
 

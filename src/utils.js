@@ -16,7 +16,7 @@ const formatMessage = (messages, text, id) => {
   const show = shows.find((show) => show.id == id);
   const { firstPrice, secondPrice } = show;
 
-  if (firstMsg > firstPrice || secondMsg > secondPrice) {
+  if (firstMsg < firstPrice || secondMsg < secondPrice) {
     return null;
   } else {
     const prices = {
@@ -26,7 +26,6 @@ const formatMessage = (messages, text, id) => {
       ],
     };
     let data = JSON.stringify(prices);
-    console.log(data);
     fs.writeFileSync("./src/prices.json", data);
     return `${text}+**$${firstMsg}**+++**$${secondMsg}**`;
   }
