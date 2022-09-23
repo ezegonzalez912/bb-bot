@@ -20,6 +20,12 @@ const sendMessage = async (show) => {
 
 }
 
+client.messages.create({
+   to: process.env.MY_PHONE_NUMBER,
+   from: '+18323466998',
+   body: "Service start"
+})
+
 cron.schedule('*/60 * * * *', () => {
    
    const now = new Date();
