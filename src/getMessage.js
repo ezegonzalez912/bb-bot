@@ -5,7 +5,7 @@ const select = require ('puppeteer-select');
 const getMessages = async ({ url, msg, id }) => {
 
    //incia la pagina
-   const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
    const page = await browser.newPage();
    await page.goto(url);
    
@@ -31,7 +31,6 @@ const getMessages = async ({ url, msg, id }) => {
 
    await page.waitForTimeout(1000);
    
-   await page.screenshot({path: 'example.png'});
    const pesoArg = await page.$('a[data-code="ARS"]');
    await pesoArg.click();
    
@@ -51,7 +50,7 @@ const getMessages = async ({ url, msg, id }) => {
    //cierra el browser
    await browser.close();
 
-   console.log(priceList, id);
+   console.log(priceList);
 
    return Promise.resolve(formatMessage(priceList, msg, id));
 }

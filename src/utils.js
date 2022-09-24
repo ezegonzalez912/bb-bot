@@ -1,6 +1,3 @@
-const fs = require("fs");
-const { shows } = require("./prices.json");
-
 const formatMessage = (messages, text, id) => {
   const [firstMsg, secondMsg] = messages
     .map((price) => {
@@ -12,23 +9,6 @@ const formatMessage = (messages, text, id) => {
       return normalPrice;
     })
     .sort();
-
-//   const show = shows.find((show) => show.id == id);
-//   const { firstPrice, secondPrice } = show;
-
-//   if (firstMsg >= firstPrice && secondMsg >= secondPrice) {
-//     return null;
-//   } else {
-//     const prices = {
-//       shows: [
-//         ...shows.filter((show) => show.id != id),
-//         { id, firstPrice: firstMsg, secondPrice: secondMsg },
-//       ],
-//     };
-//     let data = JSON.stringify(prices);
-//     fs.writeFileSync("./src/prices.json", data);
-//     return `${text}+**$${firstMsg}**+++**$${secondMsg}**`;
-//   }
 
    return `${text}+**$${firstMsg}**+++**$${secondMsg}**`;
 };
