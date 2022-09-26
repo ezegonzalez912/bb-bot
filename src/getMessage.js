@@ -5,7 +5,7 @@ const select = require ('puppeteer-select');
 const getMessages = async ({ url, msg, id }) => {
 
    //incia la pagina
-   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-extensions'] });
    const page = await browser.newPage();
    await page.goto(url);
    
